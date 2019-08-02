@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  include cards.pug
+  mixin tableRowBuilder(index)
+    a.nav-link.font-weight-bold.text-primary(id='w'+index+'Label', href='#w'+index  ,data-toggle='tab', role='tab', aria-controls='w'+index, aria-selected='true') Workspace 4
+  mixin workspaceContent(index)
+    tab-pane.fade.show(role='tabpanel', aria-labelledby='w'+index+'Label', id='w'+index)
+      p= index
+  
+  #morning-modules-row(style='display:none')
+     +tableRowBuilder(4)
+  #afternoon-modules-row(style='display:none')
+      +workspaceContent(3)
+
+  #workspaceLabels.ul.nav.nav-tabs(role='tablist')
+                  li.nav-item.active
+                    a.nav-link.font-weight-bold.text-primary.active(id='w0Label', href='#w0',data-toggle='tab', role='tab', aria-controls='w0', aria-selected='true') Workspace
+                  li.nav-item
+                    a.nav-link(role='button' onclick='semesterOneButtonClicked(5)' ) 
+                      i.fas.fa-plus.fa-1x.text-gray-500 
+  #workspaceContent.tab-content
+                  #w0.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='w0Label')
+
+  
+  script.
+      function semesterOneButtonClicked(index) {
+        
+        $('#workspaceLabels').append($('#morning-modules-row')[0].innerHTML);
+        $('#workspaceContent').append($('#afternoon-modules-row')[0].innerHTML);
+        
+      }
+
+
+

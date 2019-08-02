@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  .container-fluid
+      
+
+      nav.breadcrumb.ml-auto
+        span.breadcrumb-item.active.no-arrow.mx-1 Load Data
+        a.breadcrumb-item.no-arrow.mx-1(href='#') Modification
+        a.breadcrumb-item.no-arrow.mx-1(href='#') Analyzer
+        a.breadcrumb-item.no-arrow.mx-1(href='#') Report
+
+      .d-sm-flex.align-items-center.justify-content-between.mb-4
+        h1.h3.mb-0.text-gray-800 Load Data
+
+          form.form-inline.mr-auto.w-100(action="/load",method="post", enctype="multipart/form-data")
+              .input-group
+                  input(type="file", name="file", accept=".csv", data-position="left", data-tooltip="maximum 20 Kb").tooltipped
+                  .input-group-append
+                    button.btn.btn-primary(type='submit')
+                      i.fas.fa-file-upload

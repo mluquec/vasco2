@@ -1,0 +1,328 @@
+extends layout
+
+
+
+block content
+
+ 
+
+  .container-fluid
+      
+
+    nav.breadcrumb.ml-auto
+        
+        a.breadcrumb-item.no-arrow.mx-1(href='/load') Load Data
+        a.breadcrumb-item.no-arrow.mx-1(href='#') Modification
+        span.breadcrumb-item.active.no-arrow.mx-1 Analyzer
+        a.breadcrumb-item.no-arrow.mx-1(href='#') Report
+
+    .d-sm-flex.align-items-center.justify-content-between.mb-4
+        h3.text-gray-800 Analyzer
+
+
+    .row
+          .col-lg-2.mb-4
+            .card.shadow.mb-4
+              .card-header.py-3
+                h6.m-0.font-weight-bold.text-primary Variables
+              .card-body
+                  //Card Variable
+                  .card.shadow.mb-4
+                    .card.border-left-primary.shadow.h-100.py-1
+                      // Card Header - Accordion
+                      a.d-block.card-header.py-3(href='#collapseCardExample' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='collapseCardExample', draggable='true')
+                        .row.no-gutters.align-items-center
+                          .col.mr-1
+                            i.fas.fa-language.fa-1x.text-primary-300
+                          .col.mr-1
+                            h6.m-0.font-weight-bold.text-gray-800 Name
+                      // Card Content - Collapse
+                      #collapseCardExample.collapse.show
+                        .card-body
+                          .row.no-gutters.align-items-center
+                            .col.mr-1
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Min
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Max
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mean
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mode
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                            .col-auto
+                              i.fas.fa-chart-bar.fa-7x.text-gray-300
+
+                  .card.shadow.mb-4
+                    .card.border-left-success.shadow.h-100.py-1
+                      // Card Header - Accordion
+                      a.d-block.card-header.py-3(href='#collapseCardExample' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='collapseCardExample', draggable='true')
+                        .row.no-gutters.align-items-center
+                          .col.mr-1
+                            i.fas.fa-boxes.fa-1x.text-success
+                          .col.mr-1
+                            h6.m-0.font-weight-bold.text-gray-800 Rating
+                      // Card Content - Collapse
+                      #collapseCardExample.collapse.show
+                        .card-body
+                          .row.no-gutters.align-items-center
+                            .col.mr-1
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Min
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Max
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mean
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mode
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                            .col-auto
+                              i.fas.fa-chart-bar.fa-7x.text-gray-300
+
+                  .card.shadow.mb-4
+                    .card.border-left-info.shadow.h-100.py-1
+                      // Card Header - Accordion
+                      a.d-block.card-header.py-3(href='#collapseCardExample' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='collapseCardExample', draggable='true')
+                        .row.no-gutters.align-items-center
+                          .col.mr-1
+                            i.fas.fa-chart-line.fa-1x.text-info
+                          .col.mr-1
+                            h6.m-0.font-weight-bold.text-primary Price
+                      // Card Content - Collapse
+                      #collapseCardExample.collapse.show
+                        .card-body
+                          .row.no-gutters.align-items-center
+                            .col.mr-1
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Min
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Max
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mean
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mode
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                            .col-auto
+                              i.fas.fa-chart-bar.fa-7x.text-gray-300
+
+                  .card.shadow.mb-4
+                    .card.border-left-warning.shadow.h-100.py-1
+                      // Card Header - Accordion
+                      a.d-block.card-header.py-3(href='#collapseCardExample' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='collapseCardExample', draggable='true')
+                        .row.no-gutters.align-items-center
+                          .col.mr-1
+                            i.fas.fa-stopwatch.fa-1x.text-warning
+                          .col.mr-1
+                            h6.m-0.font-weight-bold.text-primary Date
+                      // Card Content - Collapse
+                      #collapseCardExample.collapse.show
+                        .card-body
+                          .row.no-gutters.align-items-center
+                            .col.mr-1
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Min
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Max
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mean
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                              .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mode
+                                .mb-0.font-weight-bold.text-gray-800 $40,000
+                            .col-auto
+                              i.fas.fa-chart-bar.fa-7x.text-gray-300
+
+
+
+          .col-lg-10.mb-4
+            .card.shadow.mb-4
+              .card-header.py-2
+                ul.nav.nav-tabs
+                  li.nav-item
+                    a.nav-link.text-primary.active(href='#') Workspace
+                  li.nav-item
+                    a.nav-link(href='#') Workspace 2
+                  li.nav-item
+                    a.nav-link(href='#') Workspace 3
+                  li.nav-item
+                    a.nav-link(href='#') 
+                      i.fas.fa-plus.fa-1x.text-gray-300
+
+              .card-body
+                .row
+                  .col-lg-3.mb-4
+                    .card.shadow.mb-4
+                      .card-header.py-3
+                        h6.m-0.font-weight-bold.text-primary Board
+                      .card-body
+                        .card.border-left-primary.shadow.h-100.py-1( draggable='true')
+                          .card-body
+                            .row.no-gutters.align-items-center
+                              .col.mr-1
+                                .row
+                                  i.fas.fa-language.fa-1x.text-gray-300.mr-1
+                                  h6.m-0.font-weight-bold.text-primary  Name
+                              .col-auto
+                                i.fas.fa-trash-alt.fa-1x.text-gray-300
+                        .card.border-left-success.shadow.h-100.py-1( draggable='true')
+                            .card-body
+                              .row.no-gutters.align-items-center
+                                .col.mr-1
+                                  .row
+                                    i.fas.fa-boxes.fa-1x.text-gray-300.mr-1
+                                    h6.m-0.font-weight-bold.text-primary  Rating
+                                .col-auto
+                                  i.fas.fa-trash-alt.fa-1x.text-gray-300
+                        .card.border-left-info.shadow.h-100.py-1( draggable='true')
+                          .card-body
+                            .row.no-gutters.align-items-center
+                              .col.mr-1
+                                .row
+                                  i.fas.fa-chart-line.fa-1x.text-gray-300.mr-1
+                                  h6.m-0.font-weight-bold.text-primary  Price
+                              .col-auto
+                                i.fas.fa-trash-alt.fa-1x.text-gray-300
+                        .card.border-left-warning.shadow.h-100.py-1( draggable='true')
+                          .card-body
+                            .row.no-gutters.align-items-center
+                              .col.mr-1
+                                .row
+                                  i.fas.fa-stopwatch.fa-1x.text-gray-300.mr-1
+                                  h6.m-0.font-weight-bold.text-primary  Date
+                              .col-auto
+                                i.fas.fa-trash-alt.fa-1x.text-gray-300
+
+                        .card.shadow.mb-4
+                          .card.border-left-secondary.shadow.h-100.py-1
+                            // Card Header - Accordion
+                            a.d-block.card-header.py-3( draggable='true')
+                              .row.no-gutters.align-items-center
+                                .col.mr-1
+                                      i.fas.fa-chart-line.fa-1x.text-gray-300.mr-1
+                                    
+                                      i.fas.fa-stopwatch.fa-1x.text-gray-300.mr-1
+                                    
+                                      i.fas.fa-language.fa-1x.text-gray-300.mr-1
+                                    
+                                      i.fas.fa-boxes.fa-1x.text-gray-300.mr-1
+                                .col-auto
+                                  i.fas.fa-trash-alt.fa-1x.text-gray-300
+                            // Card Content - Collapse
+                            .card-body
+                                .card.border-left-info.shadow.h-100.py-1
+                                  .card-body
+                                    .row.no-gutters.align-items-center
+                                      .col.mr-1
+                                        .row
+                                          i.fas.fa-chart-line.fa-1x.text-gray-300.mr-1
+                                          h6.m-0.font-weight-bold.text-primary  Price
+                                      .col-auto
+                                          i.fas.fa-trash-alt.fa-1x.text-gray-300
+                                .card.border-left-success.shadow.h-100.py-1
+                                  .card-body
+                                    .row.no-gutters.align-items-center
+                                      .col.mr-1
+                                        .row
+                                          i.fas.fa-boxes.fa-1x.text-gray-300.mr-1
+                                          h6.m-0.font-weight-bold.text-primary  Rating
+                                      .col-auto
+                                          i.fas.fa-trash-alt.fa-1x.text-gray-300
+                                .card.border-left-warning.shadow.h-100.py-1
+                                  .card-body.row.no-gutters.align-items-center
+                                      .col.mr-1
+                                        .row
+                                          i.fas.fa-stopwatch.fa-1x.text-gray-300.mr-1
+                                          h6.m-0.font-weight-bold.text-primary  Date
+                                      .col-auto
+                                          i.fas.fa-trash-alt.fa-1x.text-gray-300
+                                .card.border-left-primary.shadow.h-100.py-1
+                                  .card-body
+                                    .row.no-gutters.align-items-center
+                                      .col.mr-1
+                                        .row
+                                          i.fas.fa-language.fa-1x.text-gray-300.mr-1
+                                          h6.m-0.font-weight-bold.text-primary  Name
+                                      .col-auto
+                                          i.fas.fa-trash-alt.fa-1x.text-gray-300
+
+
+
+
+
+
+
+
+
+
+
+
+                  .col-lg-9.mb-4
+                    .card.shadow.mb-4
+                      .card-header.py-3
+                        h6.m-0.font-weight-bold.text-primary Graphics
+                      .card-body
+                        .row
+                          .col-md-auto
+                            .card.shadow.mb-4.card.border-left-secondary
+                          
+                            
+                              
+                                // Card Header - Accordion
+                                a.d-block.card-header.py-2( draggable='true')
+                                  .row.no-gutters.align-items-center
+                                    .col.mr-1.row
+                                      
+                                        h6.m-0.font-weight-bold.text-secondary  Bar chart : 
+                                     
+                                        h6.m-0.font-weight-bold.text-primary   Name,  Count
+
+                                    .col-auto
+                                      i.fas.fa-thumbtack.fa-1x.text-gray-300
+                                // Card Content - Collapse
+                                .card-body
+                                  i.fas.fa-chart-bar.fa-10x.text-gray-300
+                                  i.fas.fa-chart-bar.fa-10x.text-gray-300
+
+                          .col-md-auto
+                            .card.shadow.mb-4
+                              .card.border-left-secondary.shadow.h-100.py-1
+                                // Card Header - Accordion
+                                a.d-block.card-header.py-2( draggable='true')
+                                  .row.no-gutters.align-items-center
+                                    .col.mr-1
+                                      .row
+                                        h6.m-0.font-weight-bold.text-secondary  Bar chart : 
+                                     
+                                        h6.m-0.font-weight-bold.text-primary   Name,  Count
+
+                                    .col-auto
+                                      i.fas.fa-thumbtack.fa-1x.text-gray-300
+                                // Card Content - Collapse
+                                .card-body
+                                  i.fas.fa-chart-bar.fa-10x.text-gray-300
+                                  i.fas.fa-chart-bar.fa-10x.text-gray-300
+                          .col-md-auto
+                            .card.shadow.mb-4
+                              .card.border-left-secondary.shadow.h-100.py-1
+                                // Card Header - Accordion
+                                a.d-block.card-header.py-2( draggable='true')
+                                  .row.no-gutters.align-items-center
+                                    .col.mr-1
+                                      .row
+                                        h6.m-0.font-weight-bold.text-secondary  Bar chart : 
+                                     
+                                        h6.m-0.font-weight-bold.text-primary   Name,  Count
+
+                                    .col-auto
+                                      i.fas.fa-thumbtack.fa-1x.text-gray-300
+                                // Card Content - Collapse
+                                .card-body
+                                  div.grid-container
+                                    div.row#wrapper
+                                       
+
+
+
+
+
+  script(src='/js/bootstrap.bundle.min.js')
+
+
+
+
+    

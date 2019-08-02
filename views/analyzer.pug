@@ -1,0 +1,107 @@
+
+
+extends layout
+
+
+
+block content
+
+  
+  include cards.pug
+
+  .container-fluid
+      
+    // process workflow
+    nav.breadcrumb.ml-auto
+        
+        a.breadcrumb-item.no-arrow.mx-1(href='/load') Load Data
+        //a.breadcrumb-item.no-arrow.mx-1(href='#') Modification
+        span.breadcrumb-item.active.no-arrow.mx-1 Analyzer
+        button.breadcrumb-item.no-arrow.mx-1(id= 'reportbtn') Report
+
+    .d-sm-flex.align-items-center.justify-content-between.mb-4.row
+
+        h3.text-gray-800 Analyzer
+        
+
+
+    //start page analyzer
+    .row
+      //variables board
+      .col-lg-2.mb-4
+            .card.shadow.mb-4
+              .card-header.py-3.bg-gray-200.d-flex.flex-row.align-items-center.justify-content-between
+                  h6.m-0.font-weight-bold.text-primary Variables
+                  a(role='button' onclick='showAttributes()' data-stade='show' id='display-attributes' ) 
+                    i.far.fa-eye.fa-bg.fa-fw.text-gray-600
+                  
+              //variables list cards
+              #dimensionsBoard.card-body.py-2.screen-view
+                each dimension,i in keyDimensions
+                  +cardDimension(dimension,i)
+      //workspace board 
+      .col-lg-10.mb-4
+        .card.shadow.mb-4
+          // labels of the workspace
+          .card-header.py-2.bg-gray-200
+            .row
+              ul.nav.nav-tabs(role='tablist' id='workspaceLabels')
+                //default workspace
+                li.nav-item.active(style='margin-bottom: -20px;')
+                  a.nav-link.font-weight-bold.text-primary.active(id='w0LabelTab', href='#w0Workspace',data-toggle='tab', role='tab', aria-controls='w0Workspace', aria-selected='true') Workspace &nbsp; &nbsp;
+                  a.icon-corner(role='button' onclick='deleteWorkspace(this)' ) 
+                    i.fas.fa-times.fa-xs.text-gray-500
+                  
+                
+              a.nav-link(role='button' onclick='addTabWorkspace()' ) 
+                        i.fas.fa-plus.fa-1x.text-gray-500
+          //workspace content board and graphics
+          .card-body
+            
+            #workspaceContent.tab-content.screen-view-panel
+
+              +tabWorkspace(0)
+              
+                    
+      
+
+  #report.modal
+      // Modal content
+      .modal-content
+        .modal-header
+          
+          h2 Report
+          span.close ×
+        #bookmarkContainer.modal-body
+
+
+          
+
+
+        
+
+
+
+
+
+                   
+
+  script.
+        var results = !{JSON.stringify(keyGraphs).replace(/<\//g, '<\\/')} ;  
+        var bookMarks = [];
+        var resultsOneDimension = !{JSON.stringify(keyGraphsOneDimension).replace(/<\//g, '<\\/')} ;     
+        var dimensions = !{JSON.stringify(keyDimensions).replace(/<\//g, '<\\/')}  ;
+       
+
+
+
+
+  script(src='/js/bootstrap.bundle.min.js')
+  script(src='https://code.jquery.com/jquery-1.12.4.js')
+  script(src='/js/analyzer.js')
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/vega-tooltip')
+
+
+                

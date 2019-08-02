@@ -1,0 +1,109 @@
+
+
+//dimension card for the dimensions board with the attributes of the dimensions
+mixin cardDimension(dimension,i)
+
+              .card.shadow.mb-2
+
+                      case dimension.type
+                        when 'nominal'
+                          .card.border-left-primary.h-100.py-1
+                            a.d-block.card-header.py-2(role='button', data-dimensionname=dimension.name  draggable='true',  ondragstart='dragDimensionCard(event)')
+                                .row.no-gutters.align-items-center
+                                  .col.mr-1.text-primary
+                                    i.fas.fa-language.fa-1x.text-primary-800
+                                  .col.mr-1
+                                    h6.m-0.font-weight-bold.text-gray-800= dimension.name
+                        when 'quantitative'
+                          .card.border-left-info.h-100.py-1
+                            a.d-block.card-header.py-2(href='#c'+i+'VariableBoard', data-toggle='collapse', role='button', aria-expanded='true', aria-controls='#c'+i+'VariableBoard' , draggable='true', ondragstart='dragDimensionCard(event)', data-dimensionname=dimension.name)
+                              .row.no-gutters.align-items-center
+                                .col.mr-1
+                                  i.fas.fa-chart-line.fa-1x.text-info
+                                .col.mr-1
+                                  h6.m-0.font-weight-bold.text-gray-800= dimension.name
+                            // Card Content - Collapse
+                            
+                            .collapse.show(id='c'+i+'VariableBoard' )
+                              .card-body
+                                .row.no-gutters.align-items-center
+                                  .col.mr-1
+                                    .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Min
+                                      .mb-0.font-weight-bold.text-gray-800= dimension. min
+                                    .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Max
+                                      .mb-0.font-weight-bold.text-gray-800= dimension.max
+                                    .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Mean
+                                      .mb-0.font-weight-bold.text-gray-800= dimension.mean
+                                    
+                                  .col-auto
+                                    .text(id="single"+i)
+                        when 'temporal'
+                          .card.border-left-warning.h-100.py-1
+                            a.d-block.card-header.py-2(href='#c'+i+'VariableBoard', data-toggle='collapse', role='button', aria-expanded='true', aria-controls='#c'+i+'VariableBoard' , draggable='true', ondragstart='dragDimensionCard(event)', data-dimensionname=dimension.name)
+                              .row.no-gutters.align-items-center
+                                .col.mr-1
+                                  i.fas.fa-stopwatch.fa-1x.text-warning
+                                .col.mr-1
+                                  h6.m-0.font-weight-bold.text-gray-800= dimension.name
+                            // Card Content - Collapse
+                            
+                            .collapse.show(id='c'+i+'VariableBoard' )
+                              .card-body
+                                .row.no-gutters.align-items-center
+                                    .text(id="single"+i)
+                        default 
+                          .card.border-left-primary.h-100.py-1
+                            a.d-block.card-header.py-2(role='button', draggable='true',  ondragstart='dragDimensionCard(event)', data-dimensionname=dimension.name)
+                              .row.no-gutters.align-items-center
+                                .col.mr-1.text-primary
+                                  i.fas.fa-language.fa-1x.text-primary-800
+                                .col.mr-1
+                                  h6.m-0.font-weight-bold.text-gray-800= dimension.name
+//adding the tab panel in the wrokspace 
+mixin  tabWorkspace(index)
+    .tab-pane.fade.show.active(role='tabpanel', aria-labelledby='w'+index+'LabelTab', id= 'w'+index+'Workspace')
+      .row
+        .col-lg-3.mb-4
+          .card.shadow.mb-4
+            .card-header.py-3
+              .row
+                h6.m-0.font-weight-bold.text-primary.col Variable Exploration
+                a.col-auto(role='button' data-idboard='w'+index+'ActionBoard'  data-idgraphs='w'+index+'GraphicsBoard' onclick='createGroupCard(this)' ) 
+                  i.fas.fa-object-group.fa-1x.text-gray-500
+                a.col-auto(role='button' data-idboard='w'+index+'ActionBoard'  data-idgraphs='w'+index+'GraphicsBoard' onclick='cleanBoard(this)' ondrop='dropDimensionCard(event)', ondragover='allowDimensionCardDrop(event)' ) 
+                  i.fas.fa-eraser.fa-1x.text-gray-500
+
+            .card-body.action-board(id='w'+index+'ActionBoard'  ondrop='dropDimensionCard(event)', ondragover='allowDimensionCardDrop(event)')
+        .col-lg-9.mb-4
+                 .card.shadow.mb-4
+                   .card-header.py-3
+                    .row
+                      h6.m-0.font-weight-bold.text-primary.col Graphics
+                      
+                      a.col-auto(role='button' onclick='addComments(w'+index+'GraphicsBoard)' ) 
+                        i.fas.fa-comments.fa-1x.text-gray-500
+                   .card-body.row.screen-view-graph(id='w'+index+'GraphicsBoard')
+                      textarea.comments(cols = 100, rows=1, id='w'+index+'Comments')
+
+                          
+                     
+    
+
+  
+
+
+//adding a tab in the header card for workspace
+mixin tabLabelWorkspace(index)
+  
+      li.nav-item.active
+        a.nav-link.font-weight-bold.text-primary.active(id='w'+index+'Label', href='#w'+index+'Workspace'  ,data-toggle='tab', role='tab', aria-controls='w'+index+'Workspace', aria-selected='true') Workspace
+
+
+
+//dimension card for the board panel in the workspace
+
+
+
+//creation board of graphics in the board of workspace
+
+script(src='/js/analyzer.js')
